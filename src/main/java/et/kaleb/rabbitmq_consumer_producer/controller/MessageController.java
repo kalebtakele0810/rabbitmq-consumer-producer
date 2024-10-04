@@ -16,7 +16,7 @@ public class MessageController {
     private final RabbitMQProducer rabbitMQProducer;
 
     @GetMapping("/publish")
-    public ResponseEntity<String> sendMessage(@RequestParam("message") String message) {
+    public ResponseEntity<String> sendMessage(@RequestParam("user") String message) {
         rabbitMQProducer.send(message);
         return ResponseEntity.ok("Message sent to RabbitMQ Broker ...");
     }
